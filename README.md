@@ -24,6 +24,7 @@ SOCIAL is an interactive and secure social media web application designed to fos
 
 ### Profile Management
 - Personalize your experience by uploading a profile picture.
+- Edit your profile details to keep your information up to date.
 
 ### Security and Privacy
 - User data is safeguarded with secure practices, including hashed passwords and environment-based configuration management.
