@@ -1,0 +1,112 @@
+/* create-post.css */
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Add padding to body to avoid content being hidden behind fixed navbar */
+body {
+    padding-top: 90px; /* Adjust this value to match your navbar's height */
+}
+
+/* Form styling */
+.post-form-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.post-form-container:hover {
+    transform: translateY(-5px); /* Hover effect for the form */
+}
+
+.post-form-container h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+}
+
+.post-form-container .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.post-form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.post-form-container textarea,
+.post-form-container input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.post-form-container textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.post-form-container input[type="file"]:hover,
+.post-form-container textarea:focus {
+    border-color: #007BFF; /* Blue border on hover/focus */
+}
+
+.post-form-container button {
+    padding: 12px 25px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.post-form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Session message */
+.session-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #eaf1f6;
+    color: #31708f;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .post-form-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .post-form-container h1 {
+        font-size: 24px;
+    }
+}

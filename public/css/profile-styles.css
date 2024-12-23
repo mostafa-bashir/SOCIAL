@@ -1,0 +1,84 @@
+/* Basic styles for the profile page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-top: 60px;
+}
+
+.profile-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-name {
+    font-size: 2em;
+    color: #333;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.profile-email {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Profile Action Buttons */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.logout-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #e53935;
+}

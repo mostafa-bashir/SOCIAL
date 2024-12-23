@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOCIAL - Profile</title>
+  <link rel="stylesheet" href="/css/profile-styles.css"> <!-- Link to the profile CSS -->
+</head>
+<body>
+  <%- include('../subviews/navbar', { user }) %> <!-- Include your navigation bar here -->
+
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="<%= user.ppUrl %>" alt="Profile Picture" class="profile-pic">
+      <h1 class="profile-name"><%= user.name %></h1>
+    </div>
+    <div class="profile-details">
+      <p class="profile-email"><strong>Email:</strong> <%= user.email %></p>
+    </div>
+
+    <!-- Profile Action Buttons -->
+    <div class="profile-actions">
+      <a href="/profile/edit" class="btn edit-btn">Edit Profile</a>
+      <a href="/logout" class="btn logout-btn">Logout</a>
+    </div>
+  </div>
+  
+</body>
+</html>

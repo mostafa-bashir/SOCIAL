@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="/css/CreateStyles.css">
+</head>
+<body>
+    <!-- Navbar with user's profile picture and name at the top -->
+    <%- include('../subviews/navbar', user) %>
+
+    <!-- Create Post Form -->
+    <div class="post-form-container">
+        <h1>Create a New Post</h1>
+        <form action="/create" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="content" rows="4" placeholder="Write something..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="postImages">Upload Images (Optional)</label>
+                <!-- Add `multiple` attribute to allow multiple file selection -->
+                <input type="file" id="postImages" name="postImages" accept="image/*" multiple>
+            </div>
+
+            <button type="submit">Post</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="/" class="logo">SOCIAL</a>
+        </div>
+        <div class="navbar-right">
+            <!-- Create Post Button -->
+            <a class="create-post-btn" href="/create">Create Post</a>
+            
+            <!-- User Profile Button (with profile picture) -->
+            <a class="profile-btn" href="/profile/<%= user.id %>">
+                <img src="<%= user.ppUrl %>" alt="Profile Picture" class="profile-pic">
+            </a>
+        </div>
+    </nav>
+</body>
+</html>

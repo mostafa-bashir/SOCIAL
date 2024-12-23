@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="/css/edit-profile-styles.css"> <!-- Link to the edit profile CSS -->
+</head>
+<body>
+  <%- include('../subviews/navbar', { user }) %> <!-- Include your navigation bar here -->
+
+  <div class="edit-profile-container">
+    <h1>Edit Profile</h1>
+
+    <!-- Edit Profile Form -->
+    <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= user.name %>" >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" >
+      </div>
+
+      <div class="form-group">
+        <label for="profilePic">Profile Picture:</label>
+        <input type="file" id="profilePic" name="profilePicture" accept="image/*">
+        <% if (user.ppUrl) { %>
+          <div class="current-profile-pic">
+            <img src="<%= user.ppUrl %>" alt="Current Profile Picture">
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Password Change Fields -->
+
+
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="password" placeholder="Enter your new password" >
+      </div>
+
+      <button type="submit" class="btn save-btn">Save Changes</button>
+    </form>
+  </div>
+  
+</body>
+</html>

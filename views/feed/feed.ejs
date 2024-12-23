@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/feed.css" />
+    <title>SOCIAL - Feed</title>
+  </head>
+  <body>
+    <%- include('../subviews/navbar', user) %>
+
+    <div class="content-wrapper">
+      <div class="feed-container">
+        <% if (posts.length > 0) { %>
+          <% posts.forEach(post => { %>
+            <%- include('../subviews/post-card.ejs', { post: post, user }) %>
+          <% }); %>
+        <% } else { %>
+          <div class="no-posts">
+            <p>No posts to display.</p>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Pagination Section -->
+      <div class="pagination">
+        <% if (currentPage > 1) { %>
+          <a href="/feed?page=<%= currentPage - 1 %>" class="pagination-prev">Previous</a>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+          <a href="/feed?page=<%= i %>" 
+             class="pagination-link <%= i === currentPage ? 'active' : '' %>">
+            <%= i %>
+          </a>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+          <a href="/feed?page=<%= currentPage + 1 %>" class="pagination-next">Next</a>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
+

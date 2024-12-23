@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOCIAL - Feed</title>
+    <link rel="stylesheet" href="/css/post-styles.css"> <!-- Link to the new CSS file -->
+
+    <script>
+        // Add event listener once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all the comment action buttons
+            const actionButtons = document.querySelectorAll('.comment-action-btn');
+        
+            // Add event listener to each button
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const commentActions = this.closest('.comment-actions');
+                    
+                    // Close any open menus first
+                    document.querySelectorAll('.comment-actions.active').forEach(menu => {
+                        if (menu !== commentActions) {
+                            menu.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle the current menu
+                    commentActions.classList.toggle('active');
+                });
+            });
+
+            // Optional: Close the dropdown if clicked outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.comment-actions')) {
+                    document.querySelectorAll('.comment-actions.active').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <%- include('../subviews/navbar', {user}) %>
+
+    <%- include('../subviews/post-card.ejs', { post: post, user }) %> 
+
+    <div class="comments-section">
+        <h3>Comments</h3>
+        <% if (post.comments && post.comments.length > 0) { %>
+            <ul class="comments-list">
+                <% post.comments.forEach(function(comment) { %>
+                    <li class="comment-item">
+                        <div class="comment-author">
+                            <img src="<%= comment.author.ppUrl %>" alt="Profile Picture" class="comment-profile-pic">
+                            <span class="comment-username"><%= comment.author.name %></span>
+                            
+                            <!-- Three Dots Menu for Comment Actions -->
+                            <% if (comment.author.id === user.id) { %>
+                                <div class="comment-actions">
+                                    <button class="comment-action-btn">...</button>
+                                    <div class="comment-menu">
+                                        <a href="/post/comment/<%= comment.id %>/edit" class="menu-item">Edit</a>
+                                        <button >
+                                        <a href="/post/comment/<%= comment.id %>/delete" method="POST" class="menu-item">
+                                            Delete
+                                        </a>
+                                    </button>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                        <p class="comment-content"><%= comment.content %></p>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No comments yet. Be the first to comment!</p>
+        <% } %>
+    </div>
+
+    <!-- Comment Form Section -->
+    <div class="comment-section">
+        <form action="/post/<%= post.id %>" method="POST" class="comment-form">
+            <textarea name="comment" class="comment-textarea" placeholder="Write a comment..." required></textarea>
+            <button type="submit" class="comment-submit-btn">Post Comment</button>
+        </form>
+    </div>
+
+</body>
+</html>

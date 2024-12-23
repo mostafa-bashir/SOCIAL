@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Comments Section */
+.comments-section {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Comments List */
+.comments-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Author */
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-username {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Comment Content */
+.comment-content {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* Comment Form Section */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Comment Textarea */
+.comment-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+.comment-textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Submit Button */
+.comment-submit-btn {
+    align-self: flex-end;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Comment Actions Menu */
+.comment-actions {
+    position: relative;
+}
+
+.comment-action-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #555;
+    padding: 0 10px;
+    margin-left: auto;
+}
+
+.comment-action-btn:hover {
+    color: #333;
+}
+
+.comment-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.comment-menu .menu-item {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.comment-menu .menu-item:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show the menu when the parent has the 'active' class */
+.comment-actions.active .comment-menu {
+    display: block;
+}

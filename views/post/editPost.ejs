@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/css/edit-post-styles.css"> <!-- Use a new CSS file for the Edit Post page -->
+</head>
+<body>
+    <%- include('../subviews/navbar', { user }) %>
+
+    <div class="edit-post-container">
+        <h2>Edit Your Post</h2>
+
+        <form action="/post/<%= post.id %>/edit" method="POST" enctype="multipart/form-data" class="edit-post-form">
+            <!-- Text Area for Post Content -->
+            <div class="form-group">
+                <label for="content">Post Content</label>
+                <textarea 
+                    name="content" 
+                    id="content" 
+                    class="form-control" 
+                    required><%= post.content %></textarea>
+            </div>
+
+            <!-- Current Images -->
+            <% if (post.images && post.images.length > 0) { %>
+            <div class="current-images">
+                <label>Current Images:</label>
+                <div class="image-gallery">
+                    <% post.images.forEach(function(image) { %>
+                    <div class="gallery-item">
+                        <img src="<%= image.imagePath %>" alt="Post Image" class="gallery-image">
+                        <input type="checkbox" name="removeImages[]" value="<%= image.id %>" id="remove-<%= image.id %>">
+                        <label for="remove-<%= image.id %>">Remove</label>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+            <% } %>
+
+            <!-- Add New Images -->
+            <div class="form-group">
+                <label for="newImages">Add New Images</label>
+                <input type="file" name="postImages" id="newImages" multiple accept="image/*" class="form-control">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Comment</title>
+    <link rel="stylesheet" href="/css/edit-comment.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="edit-comment-container">
+        <h2>Edit Comment</h2>
+        <form action="/post/comment/<%= comment.id %>/edit" method="POST" class="edit-comment-form">
+            <textarea 
+                name="content" 
+                class="edit-comment-textarea" 
+                placeholder="Edit your comment..." 
+                required><%= comment.content %></textarea>
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <a href="/post/<%= comment.postId %>" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
